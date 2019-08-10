@@ -1,0 +1,64 @@
+{
+  "Piter":{
+    "url": "https://xml.meteoservice.ru/export/gismeteo/point/69.xml",
+    "point": 69,
+    "rus": "Санкт-Петербург"
+  },
+
+  "Moscow": {
+    "url": "https://xml.meteoservice.ru/export/gismeteo/point/37.xml",
+    "point": 37,
+    "rus": "Москва"
+  },
+
+  "Perm":{
+    "url": "https://xml.meteoservice.ru/export/gismeteo/point/59.xml",
+    "point": 59,
+    "rus": "Пермь"
+  },
+
+  "Novosibirsk":{
+    "url": "https://xml.meteoservice.ru/export/gismeteo/point/99.xml",
+    "point": 99,
+    "rus": "Новосибирск"
+  },
+
+  "Orel":{
+    "url": "https://xml.meteoservice.ru/export/gismeteo/point/115.xml",
+    "point": 115,
+    "rus": "Орёл"
+  },
+
+  "Volgograd":{
+    "url": "https://xml.meteoservice.ru/export/gismeteo/point/198.xml",
+    "point": 198,
+    "rus": "Волгоград"
+  },
+
+  "Vologda":{
+    "url": "https://xml.meteoservice.ru/export/gismeteo/point/132.xml",
+    "point": 198,
+    "rus": "Вологда"
+  },
+
+  "Izhevsk":{
+    "url": "https://xml.meteoservice.ru/export/gismeteo/point/182.xml",
+    "point": 182,
+    "rus": "Ижевск"
+  },
+
+  "Tokyo":{
+    "url": "https://xml.meteoservice.ru/export/gismeteo/point/270.xml",
+    "point": 270,
+    "rus": "Токио"
+  },
+
+  "New York":{
+    "url": "https://xml.meteoservice.ru/export/gismeteo/point/398.xml",
+    "point": 398,
+    "rus": "Нью-Йорк"
+  }
+}
+
+
+

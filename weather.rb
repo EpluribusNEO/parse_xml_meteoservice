@@ -16,14 +16,53 @@ end
 require 'net/http'
 require 'uri'
 require 'rexml/document'
+require 'json'
 
 THE_CLOUDS = {0=>'Ясно', 1=>'Малооблачно', 2=>'Облачно', 3=>'Пасмурно'}
 THE_PEECIPITATIAN = {3=>'смешанные', 4=>'дождь', 5=>'ливень',
                      6=>'снег', 7=>'снег', 8=>'гроза', 9=>'нет данных', 10=>'без осадков'}
 
-uri = URI.parse("https://xml.meteoservice.ru/export/gismeteo/point/69.xml")
+# -------------------------------------------------------------------
+current_dir = File.dirname(__FILE__ )
+begin
+  file_name = current_dir + "/cities.json"
+  file = File.read(file_name, encoding:"utf-8")
+  cities = JSON.parse(file)
+rescue Errno::ENOENT => error
+  abort "Не удалось открыть файл:\n[#{error.message}]"
+rescue => error
+  abort "Непредвиденная ошибка:\n[#{error.message}]"
+end
 
-response = Net::HTTP.get_response(uri)
+
+my_cities = Hash.new
+
+idx = 0
+cities.each do |key, value|
+  puts "#{idx} #{cities[key]["rus"]}"
+  my_cities[idx] = cities[key]["url"]
+  idx += 1
+end
+
+print "\nгород::>>>"
+i = gets.chomp.to_i
+begin
+uri_city = URI.parse(my_cities[i])
+rescue URI::InvalidURIError => error
+  abort "Ошибка: неправильно указан индекс!\n[#{error.message}]"
+rescue => error
+  abort "Непредвиденная ошибка!\n[#{error.message}]"
+end
+
+
+# -------------------------------------------------------------------
+begin
+response = Net::HTTP.get_response(uri_city)
+rescue SocketError => error
+  abort "Нет соединения с Интернет!\n[#{error.message}"
+rescue =>error
+  abort "Необработанная ошибка! Возмлжно проблема с сетевым подключением!\n#{error.message}"
+end
 
 doc = REXML::Document.new(response.body)
 
