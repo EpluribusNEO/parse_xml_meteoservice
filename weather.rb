@@ -94,7 +94,7 @@ day   = current_forecast.attributes['day']
 # 3 - смешанные, 4 - дождь, 5 - ливень, 6,7 – снег, 8 - гроза, 9 - нет данных, 10 - без осадков
 
 puts "Прогноз погоды от сайта Метеосервис\nпредоставлено Meteoservice.ru\n\n\n"
-puts "#{city_name} [день:#{day} месяц:#{month}"
+puts "#{city_name} [день:#{day} месяц:#{month}]"
 puts "Температура от #{min_temp} до #{max_temp}"
 puts "Ветер: #{max_wind} m/s"
 puts clouds
